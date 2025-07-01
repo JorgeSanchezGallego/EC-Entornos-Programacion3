@@ -9,10 +9,19 @@ import java.util.Scanner;
 import static Proyecto.Main.*;
 import static Proyecto.Venta.*;
 
+/**
+ * Clase funciones para tener to-do ordenado
+ * @author Jorge Sánchez
+ * @version 1.0
+ */
 public class Funciones {
     static Scanner teclado = new Scanner(System.in);
 
     //Menu principal
+
+    /**
+     * Muestra por terminal el menu principal con sus opciones
+     */
     public static void menuPrincipal(){
         System.out.println("### MENÚ PRINCIPAL ###");
         System.out.println("1. Gestión de clientes.");
@@ -24,6 +33,11 @@ public class Funciones {
 
 
     //Apartado clientes
+
+    /**
+     * Muestra el menu de gestión de clientes y lee la opcion marcada por el usuario
+     * @return option en caso de que el usuario marque un parametro correcto, y en caso de que no, devuelve -1
+     */
     public static int gestionClientes(){
         System.out.println("### Gestión de Clientes ###");
         System.out.println("1. Alta.");
@@ -46,6 +60,10 @@ public class Funciones {
 
     }
 
+
+    /**
+     * Recoge parametros necesarios para la creación del Cliente y lo crea y lo añade a la lista de clientes
+     */
     public static void altaCliente(){
         System.out.println("Nombre: ");
         String nombre = teclado.nextLine();
@@ -59,6 +77,11 @@ public class Funciones {
         System.out.println("Cliente añadido. ");
     }
 
+
+    /**
+     * Recoge un dni, verifica si existe, si existe muestra por pantalla al Cliente.
+     * Si no lo encuentra,  mensaje de error.
+     */
     public static void buscarPorDni(){
         System.out.println("Dime el DNI que quieres buscar en la base de datos");
         boolean encontrado = false;
@@ -75,6 +98,10 @@ public class Funciones {
         }
     }
 
+    /**
+     * Muestra la lista de clientes, solicita el índice del cliente a borrar y elimina ese cliente de la lista.
+     * Maneja excepciones en caso de que el índice sea inválido o la entrada no sea un número.
+     */
     public static void bajaCliente(){
         listaClientes();
         System.out.println("¿Que índice de cliente quieres borrar?");
@@ -92,6 +119,10 @@ public class Funciones {
         }
     }
 
+    /**
+     * Muestra los clientes, guarda al cliente seleccionado, hace comprobaciones para saber si el índice es válido.
+     * Guarda el nuevo número de teléfono.
+     */
     public static void modificarTelefono(){
         listaClientes();
         System.out.println("¿Que índice de cliente quieres cambiar el teléfono?");
@@ -115,6 +146,9 @@ public class Funciones {
 
     }
 
+    /**
+     * Muestra por terminal la lista de clientes y sus atributos
+     */
     public static void listaClientes(){
         for ( int i = 0; i < clientes.size(); i++){
             Cliente cliente = clientes.get(i);
@@ -124,6 +158,11 @@ public class Funciones {
 
 
     //Apartado Pajaros
+
+    /**
+     * Muestra el menu de gestión de pájaros y lee la opción marcada por el usuario
+     * @return option en caso de que el usuario marque un parámetro correcto, y en caso de que no, devuelve -1
+     */
     public static int gestionPajaros(){
         System.out.println("### Gestión de Pájaros ###");
         System.out.println("1. Alta.");
@@ -143,6 +182,11 @@ public class Funciones {
 
     }
 
+
+    /**
+     * Recoge parámetros necesarios para la creación del Pájaro y lo crea y guarda en la lista
+     * Maneja excepciones.
+     */
     public static void altaPajaro(){
         System.out.println("Especie: ");
         String especie = teclado.nextLine();
@@ -161,6 +205,10 @@ public class Funciones {
 
     }
 
+    /**
+     * Muestra por terminal la lista de pajaros, guarda tu selección de pájaro a borrar y lo borra
+     * Maneja excepciones
+     */
     public static void bajaPajaro(){
         listaPajaros();
         System.out.println("¿Que índice de pájaro quieres borrar?");
@@ -175,6 +223,11 @@ public class Funciones {
 
     }
 
+
+    /**
+     * Guarda la especie buscada y busca en la lista si se encuentra y la muestra con sus atributos.
+     * Si no la encuentra muestra mensaje de error.
+     */
     public static void buscarPorEspecie(){
         System.out.println("Dime la especie que quieres buscar en la base de datos");
         boolean encontrado = false;
@@ -192,6 +245,12 @@ public class Funciones {
         }
     }
 
+    /**
+     * Muestra la lista de pajaros, guarda el pájaro a modificar.
+     * Maneja excepciones de índice.
+     * Guarda el nuevo precio y verifica que no sea 0 o menor.
+     * Modifica el precio.
+     */
     public static void modificarPrecioPajaro(){
         listaPajaros();
         System.out.println("¿Que índice de pajaro quieres cambiar el precio?");
@@ -218,6 +277,9 @@ public class Funciones {
         }
     }
 
+    /**
+     * Muestra por terminal la lista de pájaros disponibles.
+     */
     public static void listaPajaros(){
         for ( int i = 0; i < pajaros.size(); i++){
             Pajaro pajaro = pajaros.get(i);
@@ -227,6 +289,10 @@ public class Funciones {
 
     //Apartado Ventas
 
+    /**
+     * Muestra el menú de la gestion de ventas.
+     * @return option como opción elegida por el usuario.
+     */
     public static int gestionVentas(){
         System.out.println("### Gestión de Ventas###");
         System.out.println("1. Nueva venta.");
@@ -240,7 +306,14 @@ public class Funciones {
     }
 
 
-
+    /**
+     * Primero verifica si tenemos clientes o pajaros en el programa.
+     * Muestra clientes y guarda la respuesta del usuario.
+     * Muestra pajaros y guarda la respuesta del usuario.
+     * Borra de la lista el pájaro comprado y si la lista no esta vacia, vuelve a preguntar por otra venta.
+     * Si esta vacia, sale del bucle.
+     * Añade la venta
+     */
     public static void nuevaVenta() {
         if (clientes.isEmpty() || pajaros.isEmpty()) {
             System.out.println("Lista de clientes o lista de pájaros vacia. ");
@@ -279,7 +352,10 @@ public class Funciones {
     }
 
 
-
+    /**
+     * Recorre las ventas.
+     * Muestra el cliente y sus compras.
+     */
     public static void ventasRealizadas(){
         for (Venta venta : ventas){
             System.out.println("Cliente: " + venta.getCliente());
@@ -287,6 +363,12 @@ public class Funciones {
         }
     }
 
+    /**
+     * Muestra lista de clientes.
+     * Maneja excepciones de índice.
+     * Si el cliente tiene ventas, muestra su venta.
+     * Si no, muestra que no tiene ventas registradas.
+     */
     public static void ventasPorCliente(){
         listaClientes();
         int posicionCliente = teclado.nextInt() -1;
@@ -314,6 +396,13 @@ public class Funciones {
 
     }
 
+
+    /**
+     * Inicializamos el total en 0
+     * Recorremos las ventas.
+     * Por cada venta, al total le sumamos el precio del pajaro.
+     * Por cada vuelta el total lo vamos sumando a otra variable para guardar el total de todas las compras.
+     */
     public static void importeTotalVenta(){
         double totalDiferentesClientes = 0;
         for (Venta venta : ventas){

@@ -6,11 +6,22 @@ import java.util.Scanner;
 
 import static Proyecto.Funciones.*;
 
+/**
+ * Clase principal que gestiona la ejecución del programa de gestión de clientes, pájaros y ventas.
+ * Contiene el menú principal y el control del flujo de la aplicación.
+ */
 public class Main {
     static ArrayList<Cliente> clientes = new ArrayList<>();
     static ArrayList<Pajaro> pajaros = new ArrayList<>();
     static ArrayList<Venta> ventas = new ArrayList<>();
 
+    /**
+     * Punto de entrada de la aplicación.
+     * Muestra el menú principal y gestiona las opciones para clientes, pájaros y ventas.
+     * Controla la entrada del usuario y el flujo de ejecución hasta la salida.
+     *
+     * @param args argumentos de línea de comandos (no usados)
+     */
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
         int opcion;
