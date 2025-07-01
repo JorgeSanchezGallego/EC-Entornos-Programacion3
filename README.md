@@ -1,5 +1,5 @@
 # Tienda de pajaros - Evaluación continua de Programación y Entornos de Desarrollo.
-main de evaluación continua para la asignatura de **Programación y Entornos de Desarrollo**.  
+Proyecto de evaluación continua para la asignatura de **Programación y Entornos de Desarrollo**.  
 Este sistema permite gestionar una tienda de pájaros desde la terminal utilizando Java.
 
 ---
