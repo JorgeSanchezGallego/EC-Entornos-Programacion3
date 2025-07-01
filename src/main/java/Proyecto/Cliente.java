@@ -81,10 +81,10 @@ public class Cliente {
     @Override
     public String toString() {
         return "{" +
-                " Nombre:" + nombre + '\'' +
-                ", Dni=" + dni + '\'' +
-                ", Teléfono=" + telefono + '\'' +
-                ", Email='" + email + '\'' +
+                " Nombre: " + nombre + '\'' +
+                ", Dni: " + dni + '\'' +
+                ", Teléfono: " + telefono + '\'' +
+                ", Email: " + email + '\'' +
                 '}';
     }
 }
